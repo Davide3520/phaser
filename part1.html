@@ -45,6 +45,7 @@
 
     var platform;
     let player;
+    let cursor;
 
     function create ()
     {
@@ -86,12 +87,29 @@
 
         player.body.setGravityY(300)
 
-        //
+        // the collider takes 2 objects and test for collision and perform separation against them.
         this.physics.add.collider(player, platform)
     }
 
     function update ()
     {
+        cursor = this.input.keyboard.createCursorKeys()
+
+        if (cursor.left.isDown) {
+            player.setVelocityX(-160);
+            player.anims.play('left', true);
+
+        } else if (cursor.right.isDown) {
+            player.setVelocityX(160);
+            player.anims.play('right', true);
+        } else {
+            player.setVelocityX(0);
+            player.anims.play('turn');
+        };
+
+        if (cursor.up.isDown && player.body.touching.down) {
+            player.setVelocityY(-330);
+        }
     }
 
 </script>
