@@ -58,10 +58,12 @@
         platform.create(50, 250, 'ground');
         platform.create(750, 220, 'ground');
 
+        // create a new player positioned at 100 x 450 px from the bottom
         player = this.physics.add.sprite(100, 450, 'dude');
         player.setBounce(0.2);
         player.setCollideWorldBounds(true);
 
+        // left animation uses frames 0, 1, 2, 3 and runs at 10 frames per second. repeat -1 means loop.
         this.anims.create({
             key: 'left',
             frames: this.anims.generateFrameNumbers('dude', {start: 0, end: 3}),
