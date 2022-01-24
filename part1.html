@@ -95,6 +95,7 @@
     {
         cursor = this.input.keyboard.createCursorKeys()
 
+        // check if the left key is being held down if it is apply negaitve horizontal velocity and start the left running animation.
         if (cursor.left.isDown) {
             player.setVelocityX(-160);
             player.anims.play('left', true);
@@ -107,8 +108,9 @@
             player.anims.play('turn');
         };
 
+        // jumping if the key up is held down and the player is touching the ground
         if (cursor.up.isDown && player.body.touching.down) {
-            player.setVelocityY(-330);
+            player.setVelocityY(-530);
         }
     }
 
