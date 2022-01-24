@@ -82,7 +82,12 @@
             frames: this.anims.generateFrameNumbers('dude', {start: 5, end: 8}),
             frameRate: 10,
             repeat: -1,
-        })
+        });
+
+        player.body.setGravityY(300)
+
+        //
+        this.physics.add.collider(player, platform)
     }
 
     function update ()
