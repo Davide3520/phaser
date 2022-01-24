@@ -47,6 +47,8 @@
     let player;
     let cursor;
     let stars;
+    let score = 0;
+    let scoreText;
 
     function create ()
     {
@@ -106,7 +108,11 @@
 
         function collectStar (player, star) {
             star.disableBody(true, true);
+            score += 10;
+            scoreText.setText(`Score ${score}`);
         }
+
+        scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' })
     }
 
     function update ()
