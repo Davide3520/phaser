@@ -2,3 +2,10 @@
 
 
 ![](game.gif)
+
+
+## Technology used
+
+[Phaser]
+[HTML]
+[Javascript]
