@@ -6,6 +6,6 @@
 
 ## Technology used
 
-[Phaser]
-[HTML]
-[Javascript]
+- Phaser
+- HTML
+- Javascript
