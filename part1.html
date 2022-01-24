@@ -46,6 +46,7 @@
     var platform;
     let player;
     let cursor;
+    let stars;
 
     function create ()
     {
@@ -89,6 +90,23 @@
 
         // the collider takes 2 objects and test for collision and perform separation against them.
         this.physics.add.collider(player, platform)
+
+        stars = this.physics.add.group({
+            key: 'star',
+            repeat: 11,
+            setXY: { x: 12, y: 0, stepX: 70 }
+        });
+
+        stars.children.iterate(function (child) {
+            child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.5));
+        })
+
+        this.physics.add.collider(stars, platform)
+        this.physics.add.overlap(player, stars, collectStar, null, this);
+
+        function collectStar (player, star) {
+            star.disableBody(true, true);
+        }
     }
 
     function update ()
